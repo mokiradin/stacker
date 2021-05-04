@@ -9,7 +9,7 @@ access = "--"
 secret = "--"
 
 def get_target(ticker,k):
-    df = pyupbit.get_ohlcv(ticker,interval="minutes10")
+    df = pyupbit.get_ohlcv(ticker,interval="minutes15")
     df['range'] = (df['high'] - df['low'])
     df['noise'] = 1 - abs(df['open'] - df['close']) / (df['high'] - df['low'])
     df['noise_ma'] = df['noise'].rolling(10).mean()
